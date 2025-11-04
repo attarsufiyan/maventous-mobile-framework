@@ -23,7 +23,7 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 
-public class AndroidActions {
+public class AndroidActions  {
 
 	AndroidDriver driver;
 	WebDriverWait waits;

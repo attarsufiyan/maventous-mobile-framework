@@ -2,31 +2,31 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-03T18:50:49 IST" name="Default suite" finished-at="2025-11-03T18:51:16 IST" duration-ms="27037">
+  <suite started-at="2025-11-04T21:32:23 IST" name="Default suite" finished-at="2025-11-04T21:32:49 IST" duration-ms="25402">
     <groups>
     </groups>
-    <test started-at="2025-11-03T18:50:49 IST" name="Default test" finished-at="2025-11-03T18:51:16 IST" duration-ms="27037">
-      <class name="com.dcentmass.maventous_mobile_framework.Login_ptc">
-        <test-method is-config="true" signature="Configuration()[pri:0, instance:com.dcentmass.maventous_mobile_framework.Login_ptc@1e800aaa]" started-at="2025-11-03T18:50:49 IST" name="Configuration" finished-at="2025-11-03T18:51:00 IST" duration-ms="11193" status="PASS">
+    <test started-at="2025-11-04T21:32:23 IST" name="Default test" finished-at="2025-11-04T21:32:49 IST" duration-ms="25402">
+      <class name="com.dcentmass.maventous_mobile_framework.Login_ntc">
+        <test-method is-config="true" signature="Configuration()[pri:0, instance:com.dcentmass.maventous_mobile_framework.Login_ntc@4e08711f]" started-at="2025-11-04T21:32:23 IST" name="Configuration" finished-at="2025-11-04T21:32:34 IST" duration-ms="11036" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Configuration -->
-        <test-method signature="Cofiguration(java.util.HashMap)[pri:0, instance:com.dcentmass.maventous_mobile_framework.Login_ptc@1e800aaa]" started-at="2025-11-03T18:51:00 IST" name="Cofiguration" data-provider="getData" finished-at="2025-11-03T18:51:15 IST" duration-ms="15111" status="PASS">
+        <test-method signature="invalidlogin(java.util.HashMap)[pri:0, instance:com.dcentmass.maventous_mobile_framework.Login_ntc@4e08711f]" started-at="2025-11-04T21:32:35 IST" name="invalidlogin" data-provider="getData" finished-at="2025-11-04T21:32:48 IST" duration-ms="13701" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{pwd=studentpassword, email=student@student.com}]]>
+                <![CDATA[{pwd=studentssspassword, email=student@student.com}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Cofiguration -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.dcentmass.maventous_mobile_framework.Login_ptc@1e800aaa]" started-at="2025-11-03T18:51:15 IST" name="tearDown" finished-at="2025-11-03T18:51:16 IST" duration-ms="508" status="PASS">
+        </test-method> <!-- invalidlogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.dcentmass.maventous_mobile_framework.Login_ntc@4e08711f]" started-at="2025-11-04T21:32:48 IST" name="tearDown" finished-at="2025-11-04T21:32:49 IST" duration-ms="457" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.dcentmass.maventous_mobile_framework.Login_ptc -->
+      </class> <!-- com.dcentmass.maventous_mobile_framework.Login_ntc -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

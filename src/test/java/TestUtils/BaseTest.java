@@ -1,8 +1,8 @@
 package TestUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -10,6 +10,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,39 +18,41 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
 import com.dcentmass.maventous_mobile_framework.WelcomePage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
-
+import Utils.AppiumUtils;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class BaseTest {
+public class BaseTest extends AppiumUtils {
 
 	public AndroidDriver driver;
 	public AppiumDriverLocalService service;
 	public WelcomePage welcomepage;
 
 	@BeforeClass
-	public void Configuration() throws MalformedURLException, URISyntaxException {
+	public void Configuration() throws URISyntaxException, IOException {
 
-		service = new AppiumServiceBuilder()
-				.withAppiumJS(
-						new File("C:\\Users\\HP\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-				.withIPAddress("127.0.0.1").usingPort(4723).build();
-		service.start();
-
+		
+		Properties prop= new Properties();
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\data.properties");
+		prop.load(fis);
+		String ipaddress=prop.getProperty("ipAddress");
+		String port=prop.getProperty("port");
+		
+		
+		service=startAppiumServer(ipaddress,Integer.parseInt(port));
+		
 		UiAutomator2Options options = new UiAutomator2Options();
-		options.setDeviceName("Maventous");
+		options.setDeviceName(prop.getProperty("AndriodDeviceName"));
 		options.setApp(
-				"D:\\Maventous Appium Framework\\maventous_mobile_framework\\src\\test\\java\\resources\\Maventous.apk");
+				System.getProperty("user.dir")+"\\src\\test\\java\\apk\\Maventous.apk");
 
-		driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), options);
+		driver = new AndroidDriver(service.getUrl(), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		welcomepage= new WelcomePage(driver);
 		

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import Utils.AndroidActions;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -35,5 +36,14 @@ public class HomePage extends AndroidActions {
 		}
 		return text;
 	}
+	
+	public String gettoastmsg() {
+		String toastmsg = driver
+				.findElement(AppiumBy.xpath("//android.widget.Toast[@text=\"Invalid credentials. Please try again.\"]"))
+				.getText();
+		return toastmsg;
+	    }
+	
+	
 
 }

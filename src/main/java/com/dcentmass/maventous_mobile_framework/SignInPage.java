@@ -49,9 +49,6 @@ public class SignInPage {
 	}
 	
 	
-	
-	
-	
 	public String gettoastmsg() {
 	String toastmsg = driver
 			.findElement(AppiumBy.xpath("//android.widget.Toast[@text=\"Invalid credentials. Please try again.\"]"))

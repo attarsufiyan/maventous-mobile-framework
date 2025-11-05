@@ -14,8 +14,8 @@ import TestUtils.BaseTest;
 
 public class Login_ptc extends BaseTest {
 
-	@Test(dataProvider = "getData")
-	public void Cofiguration(HashMap<String, String> input)
+	@Test(dataProvider = "getData",groups= {"Smoke"})
+	public void validLogin(HashMap<String, String> input)
 			throws MalformedURLException, URISyntaxException, InterruptedException {
 
 		welcomepage.clicknextButton();

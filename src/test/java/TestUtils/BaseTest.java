@@ -34,31 +34,30 @@ public class BaseTest extends AppiumUtils {
 	public AppiumDriverLocalService service;
 	public WelcomePage welcomepage;
 
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void Configuration() throws URISyntaxException, IOException {
 
-		
-		Properties prop= new Properties();
-		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\data.properties");
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream(
+				System.getProperty("user.dir") + "\\src\\main\\java\\resources\\data.properties");
+		String ipaddress = System.getProperty("ipAddress")!=null ? System.getProperty("ipAddress") : prop.getProperty("ipAddress");
 		prop.load(fis);
-		String ipaddress=prop.getProperty("ipAddress");
-		String port=prop.getProperty("port");
-		
-		
-		service=startAppiumServer(ipaddress,Integer.parseInt(port));
-		
+		//String ipaddress = prop.getProperty("ipAddress");
+		String port = prop.getProperty("port");
+
+		service = startAppiumServer(ipaddress, Integer.parseInt(port));
+
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName(prop.getProperty("AndriodDeviceName"));
-		options.setApp(
-				System.getProperty("user.dir")+"\\src\\test\\java\\apk\\Maventous.apk");
+		options.setApp(System.getProperty("user.dir") + "\\src\\test\\java\\apk\\Maventous.apk");
 
 		driver = new AndroidDriver(service.getUrl(), options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		welcomepage= new WelcomePage(driver);
-		
+		welcomepage = new WelcomePage(driver);
+
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 
 		driver.quit();
@@ -151,18 +150,18 @@ public class BaseTest extends AppiumUtils {
 		}
 
 	}
-	public List<HashMap<String, String>> getJsonData(String jsonFilePath) throws IOException {
-		 
-		 
-		// System.getProperty("user.dir")+"\\src\\test\\java\\testData\\Ed-Tech.json")
-		    // conver json file content to json string
-	    String jsonContent = FileUtils.readFileToString(new File(jsonFilePath),StandardCharsets.UTF_8);
-		  		    ObjectMapper mapper = new ObjectMapper();
-		    List<HashMap<String, String>> data = mapper.readValue(jsonContent,
-		            new TypeReference<List<HashMap<String, String>>>() {
-		            });
 
-		    return data;
-		}
+	public List<HashMap<String, String>> getJsonData(String jsonFilePath) throws IOException {
+
+		// System.getProperty("user.dir")+"\\src\\test\\java\\testData\\Ed-Tech.json")
+		// conver json file content to json string
+		String jsonContent = FileUtils.readFileToString(new File(jsonFilePath), StandardCharsets.UTF_8);
+		ObjectMapper mapper = new ObjectMapper();
+		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
+				new TypeReference<List<HashMap<String, String>>>() {
+				});
+
+		return data;
+	}
 
 }

@@ -12,7 +12,14 @@ Maventous Mobile Automation Framework
 
 * The framework follows the Page Object Model (POM) design pattern for better reusability and maintainability of code.
 
-* It integrates with Extent Reports for detailed execution results and can be easily extended for cross-platform or cloud-based testing using BrowserStack or Sauce Labs
+* It integrates with Extent Reports for detailed execution results and can be easily extended for cross-platform or cloud-based testing using BrowserStack or Sauce Labs.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bd49125a-c527-49ef-b70c-42a9deb89d3a" height="400" style="margin-right:10px;" />
+  <img src="https://github.com/user-attachments/assets/81d9b311-cf3d-4513-a9e5-7891f71ba375" height="400" />
+</p>
+
+
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,6 +66,11 @@ Maventous Mobile Automation Framework
 * Data Handling: JSON and .properties files for storing test data and configurations.
 
 * Version Control: Git & GitHub — Source code management and version tracking.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="1916" height="897" alt="image" src="https://github.com/user-attachments/assets/0e3e15c1-793f-4062-8efe-fe056cd1b788" />
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -173,3 +185,15 @@ Root Folder: maventous_mobile_framework/ — Main directory containing source co
       reportsvalidLogin.png
 
       reportsinvalidlogin.png
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+👨‍💻 Author
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Name: Sufiyan Attar
+
+Role: QA Automation Engineer
+
+Email:sufiyanattar@hotmail.com
